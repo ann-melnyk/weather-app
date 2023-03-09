@@ -1,0 +1,111 @@
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/509/original/sky_background.jpg?1675864612");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+.contents {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Montserrat", sans-serif;
+  margin: 30px auto;
+  max-width: 60%;
+  padding: 35px;
+}
+
+.first-row {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.form-control {
+  border-color: rgb(35, 129, 187);
+  border-width: 2px;
+  padding: 10px;
+}
+
+.form-col {
+  padding: 0 10px;
+}
+
+.btn {
+  background-color: rgb(35, 129, 187);
+  border-color: rgb(35, 129, 187);
+  border-width: 2px;
+  color: white;
+  padding: 10px;
+}
+
+.btn:hover {
+  background-color: rgb(116, 180, 218);
+  border-color: rgb(116, 180, 218);
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 600;
+  text-shadow: 2px 1px rgba(35, 129, 187, 0.6);
+  margin: 0;
+}
+
+.date {
+  padding-left: 2px;
+  color: rgb(125, 123, 123);
+}
+
+ul {
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+li {
+  list-style: none;
+}
+
+.weather-properties {
+  color: rgb(35, 129, 187);
+}
+
+.big-image {
+  display: block;
+  margin: 0 auto;
+  width: 105px;
+}
+
+.weather-description {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.temperature-today {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.units {
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  bottom: 36px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(35, 129, 187);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: rgb(116, 180, 218);
+  color: white;
+}
