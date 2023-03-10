@@ -7,13 +7,17 @@ body {
   margin: 0;
 }
 
+.container {
+  max-width: 55%;
+}
+
 .contents {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
   font-family: "Montserrat", sans-serif;
-  margin: 30px auto;
-  max-width: 60%;
+  margin: 40px auto 10px;
+  max-width: 100%;
   padding: 35px;
 }
 
@@ -132,6 +136,10 @@ p.weather-properties {
 
 .weekday-blocks:hover {
   background-color: rgba(116, 180, 218, 0.2);
+}
+
+small {
+  padding-bottom: 20px;
 }
 
 ::selection {
