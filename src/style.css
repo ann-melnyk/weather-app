@@ -105,6 +105,35 @@ a:hover {
   text-decoration: underline;
 }
 
+.weather-forecast {
+  margin-top: 20px;
+}
+
+.weekdays {
+  text-align: center;
+}
+
+.small-image {
+  display: block;
+  margin: 0 auto;
+  width: 65px;
+}
+
+p.weather-properties {
+  text-align: center;
+  margin: 16px 0 0;
+}
+
+.weekday-blocks {
+  padding: 10px 0;
+  border-radius: 10px;
+  transition: all 150ms ease-in-out;
+}
+
+.weekday-blocks:hover {
+  background-color: rgba(116, 180, 218, 0.2);
+}
+
 ::selection {
   background: rgb(116, 180, 218);
   color: white;
