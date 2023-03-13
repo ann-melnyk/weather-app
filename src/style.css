@@ -86,6 +86,10 @@ li {
   margin: 0;
 }
 
+.weather-description::first-letter {
+  text-transform: capitalize;
+}
+
 .temperature-today {
   text-align: center;
   font-size: 70px;

@@ -25,13 +25,14 @@ let date = document.querySelector("#date");
 date.innerHTML = showDate(now);
 
 const displayWeather = (response) => {
-  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#temperature-today").innerHTML = Math.round(
-    response.data.main.temp
+    response.data.temperature.current
   );
   document.querySelector("#weather-description").innerHTML =
-    response.data.weather[0].main;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+    response.data.condition.description;
+  document.querySelector("#humidity").innerHTML =
+    response.data.temperature.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
     response.data.wind.speed
   );
@@ -39,8 +40,8 @@ const displayWeather = (response) => {
 };
 const searchCity = (city) => {
   let units = "metric";
-  let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  let apiKey = "331b6a65abb0fta4adaf50df4be9b78o";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
 };
 const handleSubmit = (event) => {
@@ -54,8 +55,8 @@ searchCity("Kyiv");
 
 const searchLocation = (position) => {
   let units = "metric";
-  let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
+  let apiKey = "331b6a65abb0fta4adaf50df4be9b78o";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
 };
 const getCurrentLocation = (event) => {
