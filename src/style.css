@@ -32,8 +32,8 @@ body {
   padding: 10px;
 }
 
-.form-col {
-  padding: 0 10px;
+.input-col {
+  padding-right: 0;
 }
 
 .btn {
@@ -41,7 +41,9 @@ body {
   border-color: rgb(35, 129, 187);
   border-width: 2px;
   color: white;
-  padding: 10px;
+  padding: 10px 17px;
+  position: relative;
+  left: 14px;
 }
 
 .btn:hover {
