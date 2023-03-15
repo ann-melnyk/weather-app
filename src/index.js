@@ -20,9 +20,6 @@ const showDate = (date) => {
   let currentDate = `${weekDay} ${hours}:${minutes}`;
   return currentDate;
 };
-let now = new Date();
-let date = document.querySelector("#date");
-date.innerHTML = showDate(now);
 
 const displayWeather = (response) => {
   document.querySelector("#city").innerHTML = response.data.city;
@@ -42,6 +39,8 @@ const displayWeather = (response) => {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  celsiusTemp = response.data.temperature.current;
 };
 const searchCity = (city) => {
   let units = "metric";
@@ -54,9 +53,6 @@ const handleSubmit = (event) => {
   let city = document.querySelector("#form-input").value;
   searchCity(city);
 };
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-searchCity("Kyiv");
 
 const searchLocation = (position) => {
   let units = "metric";
@@ -68,5 +64,40 @@ const getCurrentLocation = (event) => {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 };
+
+const displayFahrenheitTemp = (event) => {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature-today");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+};
+
+const displayCelsiusTemp = (event) => {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature-today");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+};
+
+let celsiusTemp = null;
+
+let now = new Date();
+let date = document.querySelector("#date");
+date.innerHTML = showDate(now);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+searchCity("Kyiv");

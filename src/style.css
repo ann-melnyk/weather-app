@@ -51,6 +51,11 @@ body {
   border-color: rgb(116, 180, 218);
 }
 
+.btn:first-child:active {
+  background-color: rgb(116, 180, 218);
+  border-color: rgb(116, 180, 218);
+}
+
 h1 {
   font-size: 50px;
   font-weight: 600;
@@ -113,6 +118,15 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.active {
+  color: black;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
 }
 
 .weather-forecast {
