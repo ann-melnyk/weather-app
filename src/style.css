@@ -32,6 +32,10 @@ body {
   padding: 10px;
 }
 
+.form-control:focus {
+  border-color: rgb(116, 180, 218);
+}
+
 .input-col {
   padding-right: 0;
 }
@@ -44,16 +48,18 @@ body {
   padding: 10px 17px;
   position: relative;
   left: 14px;
+  transition: all 100ms ease-in-out;
 }
 
 .btn:hover {
   background-color: rgb(116, 180, 218);
   border-color: rgb(116, 180, 218);
+  cursor: pointer;
 }
 
 .btn:first-child:active {
-  background-color: rgb(116, 180, 218);
-  border-color: rgb(116, 180, 218);
+  background-color: rgb(35, 129, 187);
+  border-color: rgb(35, 129, 187);
 }
 
 h1 {
@@ -131,21 +137,17 @@ a:hover {
 
 .weather-forecast {
   margin-top: 20px;
-}
-
-.weekdays {
   text-align: center;
 }
 
-.small-image {
-  display: block;
-  margin: 0 auto;
-  width: 65px;
-}
-
-p.weather-properties {
-  text-align: center;
+.weather-forecast-temperatures {
   margin: 16px 0 0;
+  color: rgb(35, 129, 187);
+  font-weight: 500;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
 }
 
 .weekday-blocks {
@@ -160,9 +162,4 @@ p.weather-properties {
 
 small {
   padding-bottom: 20px;
-}
-
-::selection {
-  background: rgb(116, 180, 218);
-  color: white;
 }

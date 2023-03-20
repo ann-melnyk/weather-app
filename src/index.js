@@ -21,6 +21,32 @@ const showDate = (date) => {
   return currentDate;
 };
 
+const displayForecast = () => {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2 weekday-blocks">
+        <p>${day}</p>
+        <img
+          src="images/sun_cloud_icon.svg"
+          alt=""
+          class="small-image"
+          width="65px"
+        />
+        <p class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">-1° </span
+          ><span class="weather-forecast-temperature-min">-5° </span>
+        </p>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+};
+
 const displayWeather = (response) => {
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#temperature-today").innerHTML = Math.round(
@@ -52,6 +78,8 @@ const handleSubmit = (event) => {
   event.preventDefault();
   let city = document.querySelector("#form-input").value;
   searchCity(city);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 };
 
 const searchLocation = (position) => {
@@ -63,6 +91,8 @@ const searchLocation = (position) => {
 const getCurrentLocation = (event) => {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 };
 
 const displayFahrenheitTemp = (event) => {
@@ -101,3 +131,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 searchCity("Kyiv");
+displayForecast();
