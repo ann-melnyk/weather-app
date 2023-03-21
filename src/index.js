@@ -87,8 +87,6 @@ const displayWeather = (response) => {
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 
-  celsiusTemp = response.data.temperature.current;
-
   getForecast(response.data.coordinates);
 };
 const searchCity = (city) => {
@@ -100,8 +98,6 @@ const handleSubmit = (event) => {
   event.preventDefault();
   let city = document.querySelector("#form-input").value;
   searchCity(city);
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
 };
 
 const searchLocation = (position) => {
@@ -112,28 +108,7 @@ const searchLocation = (position) => {
 const getCurrentLocation = (event) => {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
 };
-
-const displayFahrenheitTemp = (event) => {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature-today");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-};
-
-const displayCelsiusTemp = (event) => {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature-today");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-};
-
-let celsiusTemp = null;
 
 let now = new Date();
 let date = document.querySelector("#date");
@@ -144,12 +119,6 @@ searchForm.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 searchCity("Kyiv");
 displayForecast();
