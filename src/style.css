@@ -126,15 +126,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.active {
-  color: black;
-  cursor: default;
-}
-
-.active:hover {
-  text-decoration: none;
-}
-
 .weather-forecast {
   margin-top: 20px;
   text-align: center;
